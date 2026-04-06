@@ -27,7 +27,11 @@ public class ProductController {
     public List<Product> getAllProducts() {
         return repository.findAll();
     }
-    
+    @GetMapping("/{id}")
+    public Product getProductById(@PathVariable Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id " + id));
+    }
 //suresh push
 
 

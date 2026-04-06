@@ -11,8 +11,6 @@ import java.util.List;
 public class ProductController {
 
     private final ProductRepository repository;
-    
-    
 
     public ProductController(ProductRepository repository) {
         this.repository = repository;
@@ -24,5 +22,15 @@ public class ProductController {
     {
     	return repository.save(pro);
     }
+    
+    @GetMapping("/Allget")
+    public List<Product> getAllProducts() {
+        return repository.findAll();
+    }
+    
+
+
+
+
 
 }
